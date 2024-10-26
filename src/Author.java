@@ -15,4 +15,19 @@ public class Author {
         return this.authorSecondName;
     }
 
+    public String toString() {
+        return authorFirstName + " " + authorSecondName;
+    }
+
+    public boolean equals(Object other) {
+        if ( this.getClass () != other.getClass () ) {
+            return false;
+        }
+        Author author2 = (Author) other;
+        return authorSecondName.equals ( author2.authorSecondName ) && authorFirstName.equals ( author2.authorFirstName );
+    }
+
+    public int hashCode() {
+        return java.util.Objects.hash ( authorFirstName ) + java.util.Objects.hash ( authorSecondName );
+    }
 }
